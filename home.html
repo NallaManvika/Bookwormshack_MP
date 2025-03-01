@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bookworm Shack</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: hwb(200 74% 3%);
+            background-image: url('back_img.jpg');
+            /* Ensure the background image covers the entire viewport */
+            background-size: cover;
+            /* Center the background image */
+            background-position: center;
+            /* Fix the background image to prevent scrolling */
+            background-attachment: fixed;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 100px auto 50px; /* Adjusted margin to increase space */
+            padding: 20px;
+            background-color: rgba(238, 239, 204, 0.8); /* Semi-transparent white background */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center text within container */
+        }
+        h1 {
+            color: #000; /* Dark black color for title */
+            font-size: 45px;
+        }
+        .search-box {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid hsl(0, 2%, 24%);
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .button-container {
+            text-align: center;
+        }
+        .button-container button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button-container button:hover {
+            background-color: #45a049;
+        }
+        .genre-container {
+            text-align: center;
+        }
+        .genre-container button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: rgb(27, 41, 56);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .genre-container button:hover {
+            background-color: hsl(21, 40%, 43%);
+        }
+        .image-container {
+            margin-top: 30px; /* Adjust margin to separate image from title */
+        }
+        .image-container img {
+            width: 600px; /* Set width of image */
+            height: 400px; /* Automatically calculate height to maintain aspect ratio */
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>The Bookworm Shack</h1>
+        <input type="text" class="search-box" placeholder="Search...">
+        <div class="image-container">
+            <img src="img.jpg" alt="Bookworm Image">
+        </div>
+        
+        
+        <div class="genre-container">
+            <button onclick="openFictionPage()">Fiction</button>
+            <button onclick="openNovelPage()">Novel</button>
+            <button onclick="openEducationPage()">Education</button>
+            <button onclick="openHorrorPage()">Horror</button>
+        </div>
+        <div class="button-container">
+            <button onclick="openHelpPage()">Help</button>
+        </div>
+        <div class="book-list" id="bookList"></div>
+    </div>
+    <script>
+        var books = [
+            "ds",
+            "ece1",
+            "ece2",
+            "Java",
+            "oops",
+            "os",
+            "python",
+            "Thermodynamics"
+            // Add more books as needed
+        ];
+
+        function searchBooks() {
+            var searchBox = document.getElementById("searchBox");
+            var searchTerm = searchBox.value.toLowerCase();
+            var bookList = document.getElementById("bookList");
+            var filteredBooks = books.filter(function(book) {
+                return book.toLowerCase().includes(searchTerm);
+            });
+            displayBooks(filteredBooks);
+        }
+
+        function displayBooks(books) {
+            var bookList = document.getElementById("bookList");
+            bookList.innerHTML = ""; // Clear previous results
+            books.forEach(function(book) {
+                var bookItem = document.createElement("div");
+                bookItem.textContent = book;
+                bookItem.classList.add("book-item");
+                bookList.appendChild(bookItem);
+            });
+        }
+        function openHelpPage() {
+            // Replace 'help.html' with the actual URL of your help page
+            window.location.href = 'help.html';
+        }
+
+        function openFictionPage() {
+            // Redirect to the page containing fiction books
+            window.location.href = 'file:///C:/Users/lenovo%20user/Documents/project_book_store/fiction.html'; // Replace with the actual URL
+        }
+        function openNovelPage() {
+            // Redirect to the page containing fiction books
+            window.location.href = 'file:///C:/Users/lenovo%20user/Documents/project_book_store/novel.html'; // Replace with the actual URL
+        }
+        function openEducationPage() {
+            // Redirect to the page containing fiction books
+            window.location.href = 'file:///C:/Users/lenovo%20user/Documents/project_book_store/Education.html'; // Replace with the actual URL
+        }
+        function openHorrorPage() {
+            // Redirect to the page containing fiction books
+            window.location.href = 'file:///C:/Users/lenovo%20user/Documents/project_book_store/horror.html'; // Replace with the actual URL
+        }
+    </script>
+</body>
+</html>

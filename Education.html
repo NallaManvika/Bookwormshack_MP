@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Books</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eae08e;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: hsl(250, 37%, 91%);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .department-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .department-buttons button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: hsl(13, 74%, 62%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .department-buttons button:hover {
+            background-color: #6aeadd;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: #080a0c;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Education Books</h1>
+        <div class="department-buttons">
+            <button onclick="showITBooks()">IT</button>
+            <button onclick="showECEBooks()">ECE</button>
+            <button onclick="showMechanicalBooks()">Mechanical</button>
+        </div>
+        <ul id="books-list">
+            <!-- Books will be displayed here -->
+        </ul>
+    </div>
+
+    <script>
+        function showITBooks() {
+            document.getElementById('books-list').innerHTML = `
+                <li><a href="os.pdf" target="_blank">Operating Systems</a></li>
+                <li><a href="Java.pdf">Java</a></li>
+                <li><a href="python.pdf">Python</a></li>
+            `;
+        }
+
+        function showMechanicalBooks() {
+            document.getElementById('books-list').innerHTML = `
+                <li><a href="ME.pdf" target="_blank">Introduction to Mechanical Engineering</a></li>
+                <li><a href="Thermodynamics.pdf">Thermodynamics</a></li>
+            `;
+        }
+
+        function showECEBooks() {
+            document.getElementById('books-list').innerHTML = `
+                <li><a href="ece1.pdf" target="_blank">Electronic Devices and Circuit Theory</a></li>
+                <li><a href="ece2.pdf">Electronic Devices</a></li>
+            `;
+        }
+    </script>
+    <script>
+        // Initialize PDF viewer
+        var pdfViewer = new PDFViewerLib('pdfViewer');
+        pdfViewer.load('C:\Users\lenovo user\Documents\project_book_store\Java.pdf'); // Replace with the actual path to the PDF file
+
+        // Attach event listener for word double-click
+        pdfViewer.on('wordDoubleClick', function(word) {
+            // Handle double-click event on word
+            console.log('Double-clicked word:', word);
+            // Perform word lookup and display meaning
+            displayMeaning(word);
+        });
+
+        // Function to display meaning of a word
+        function displayMeaning(word) {
+            // Perform word lookup (e.g., fetch meaning from a database)
+            var meaning = fetchMeaningFromDatabase(word);
+            // Display meaning to the user (e.g., in a tooltip or popup)
+            alert('Meaning of "' + word + '": ' + meaning);
+        }
+
+        // Function to fetch meaning of a word from a database
+        function fetchMeaningFromDatabase(word) {
+            // Example: Simulated database lookup
+            var meanings = {
+                'imported': 'something is produced in one country and brought into another',
+                'word2': 'Meaning of word2',
+                // Add more word-meaning mappings as needed
+            };
+            return meanings[word] || 'Meaning not found';
+        }
+    </script>
+    
+<script>
+    var pdfViewer = new PDFViewerLib('pdfViewer');
+    pdfViewer.load('C:\Users\lenovo user\Documents\project_book_store\python.pdf'); // Replace with the actual path to the PDF file
+
+    // Attach event listener for word double-click
+    pdfViewer.on('wordDoubleClick', function(word) {
+        // Handle double-click event on word
+        console.log('Double-clicked word:', word);
+        // Perform word lookup and display meaning
+        displayMeaning(word);
+    });
+
+    // Function to display meaning of a word
+    function displayMeaning(word) {
+        // Perform word lookup (e.g., fetch meaning from a database)
+        var meaning = fetchMeaningFromDatabase(word);
+        // Display meaning to the user (e.g., in a tooltip or popup)
+        alert('Meaning of "' + word + '": ' + meaning);
+    }
+
+    // Function to fetch meaning of a word from a database
+    function fetchMeaningFromDatabase(word) {
+        // Example: Simulated database lookup
+        var meanings = {
+            'imported': 'something is produced in one country and brought into another',
+            'inside': 'in, on or to the inner part or surface of something',
+            // Add more word-meaning mappings as needed
+        };
+        return meanings[word] || 'Meaning not found';
+    }
+</script>
+<script>
+    var pdfViewer = new PDFViewerLib('pdfViewer');
+    pdfViewer.load('C:\Users\lenovo user\Documents\project_book_store\os.pdf'); // Replace with the actual path to the PDF file
+
+    // Attach event listener for word double-click
+    pdfViewer.on('wordDoubleClick', function(word) {
+        // Handle double-click event on word
+        console.log('Double-clicked word:', word);
+        // Perform word lookup and display meaning
+        displayMeaning(word);
+    });
+
+    // Function to display meaning of a word
+    function displayMeaning(word) {
+        // Perform word lookup (e.g., fetch meaning from a database)
+        var meaning = fetchMeaningFromDatabase(word);
+        // Display meaning to the user (e.g., in a tooltip or popup)
+        alert('Meaning of "' + word + '": ' + meaning);
+    }
+
+    // Function to fetch meaning of a word from a database
+    function fetchMeaningFromDatabase(word) {
+        // Example: Simulated database lookup
+        var meanings = {
+            'imported': 'something is produced in one country and brought into another',
+            'word2': 'Meaning of word2',
+            // Add more word-meaning mappings as needed
+        };
+        return meanings[word] || 'Meaning not found';
+    }
+</script>
+</body>
+</html>
